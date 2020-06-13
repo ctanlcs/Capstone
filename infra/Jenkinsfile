@@ -1,10 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('Install') {
+    stage('aws and eksctl version') {
       steps {
         withAWS(region:'us-east-2', credentials:'eks-docker-hub') {
-          sh 'pip3 install --upgrade --user awscli'
           sh 'aws --version'
           sh 'eksctl version'
         }
