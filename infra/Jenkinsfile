@@ -12,6 +12,8 @@ pipeline {
     stage('Create K8S Cluster') {
       steps {
         withAWS(region:'us-east-2', credentials:'eks-docker-hub') {
+          sh 'kubectl describe configmap -n kube-system aws-auth'
+          sh 'kubectl apply -f aws-auth-cm.yaml'
           sh '''
             eksctl create cluster \
 	      --name prodtest \
