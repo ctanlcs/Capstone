@@ -1,0 +1,13 @@
+pipeline {
+  agent any
+  stages {
+    stage('Install') {
+      steps {
+        withAWS(region:'us-east-2', credentials:'aws-static') {
+          sh 'echo "upgrade awscli..."'
+          sh 'pip3 install --upgrade --user awscli'
+        }
+      }
+    }
+  }
+}
