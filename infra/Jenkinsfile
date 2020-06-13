@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Install') {
       steps {
-        withAWS(region:'us-east-2', credentials:'aws-static') {
+        withAWS(region:'us-east-2', credentials:'eks-docker-hub') {
           sh 'echo "upgrade awscli..."'
           sh 'pip3 install --upgrade --user awscli'
         }
