@@ -22,10 +22,6 @@ pipeline {
 	      --nodes 3 \
 	      --nodes-min 1 \
               --nodes-max 4 \
-              --region us-east-2 \
-              --zones us-east-2a \
-              --zones us-east-2b \
-              --zones us-east-2c \
 	      --managed
           '''
         }
