@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('aws and eksctl version') {
       steps {
-        withAWS(region:'us-east-2', credentials:'eks-docker-hub') {
+        withAWS(region:'us-east-2', credentials:'aws-master') {
           sh 'aws --version'
           sh 'eksctl version'
         }
@@ -11,8 +11,7 @@ pipeline {
     }
     stage('Create K8S Cluster') {
       steps {
-        withAWS(region:'us-east-2', credentials:'eks-docker-hub') {
-          sh 'kubectl apply -f aws-auth-cm.yaml'
+        withAWS(region:'us-east-2', credentials:'aws-master') {
           sh '''
             eksctl create cluster \
 	      --name prodtest \
@@ -34,7 +33,7 @@ pipeline {
     }
     stage('Update K8S Config') {
       steps {
-        withAWS(region:'us-east-2', credentials:'eks-docker-hub') {
+        withAWS(region:'us-east-2', credentials:'aws-master') {
           sh 'aws eks --region us-east-2 update-kubeconfig --name prodtest'
         }            
       }
