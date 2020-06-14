@@ -5,4 +5,8 @@ Pipeline "Capstone" is used to build docker image, push it to docker hub, and de
 
 The docker image is just a custom nginx Hello World html file.
 
+deployment folder contains yaml files to setup the loadbalancer and rolling deployment.
+
+infra folder contains the Jenkinsfile for "Capstone Infra".
+
 Detail steps can be found in Description.docx folder.
