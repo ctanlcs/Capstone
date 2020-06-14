@@ -14,7 +14,7 @@ pipeline {
         withAWS(region:'us-east-2', credentials:'aws-master') {
           sh '''
             eksctl create cluster \
-	      --name prodtest \
+	      --name prod \
 	      --version 1.16 \
 	      --region us-east-2 \
 	      --nodegroup-name standard-workers \
@@ -30,7 +30,7 @@ pipeline {
     stage('Update K8S Config') {
       steps {
         withAWS(region:'us-east-2', credentials:'aws-master') {
-          sh 'aws eks --region us-east-2 update-kubeconfig --name prodtest'
+          sh 'aws eks --region us-east-2 update-kubeconfig --name prod'
         }            
       }
     }
