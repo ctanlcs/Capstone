@@ -5,4 +5,4 @@ Pipeline "Capstone" is used to build docker image, push it to docker hub, and de
 
 The docker image is just a custom nginx Hello World html file.
 
-Detail steps can be found in Description.docs folder.
+Detail steps can be found in Description.docx folder.
