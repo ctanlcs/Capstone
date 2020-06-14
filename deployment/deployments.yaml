@@ -22,4 +22,4 @@ spec:
       - image: ctanlcs/eks-docker-hub:12
         name: nodeapp
         ports:
-        - containerPort: 8080
+        - containerPort: 80
